@@ -15,11 +15,11 @@ enum NETWORKS {
 }
 
 enum MANA {
-  'MUMBAI' = '0x882Da5967c435eA5cC6b09150d55E8304B838f45',
-  'MATIC' = '0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4',
-  'GOERLI' = '0xe7fDae84ACaba2A5Ba817B6E6D8A2d415DBFEdbe',
-  'LOCALHOST' = '0xe7fDae84ACaba2A5Ba817B6E6D8A2d415DBFEdbe',
-  'BSC_TESTNET' = '0x00cca1b48a7b41c57821492efd0e872984db5baa',
+  'MUMBAI' = '0x0165878A594ca255338adfa4d48449f69242Eb8F',
+  'MATIC' = '0x0165878A594ca255338adfa4d48449f69242Eb8F',
+  'GOERLI' = '0x0165878A594ca255338adfa4d48449f69242Eb8F',
+  'LOCALHOST' = '0x0165878A594ca255338adfa4d48449f69242Eb8F',
+  'BSC_TESTNET' = '0x0165878A594ca255338adfa4d48449f69242Eb8F',
 }
 
 const FEES_COLLECTOR_CUT_PER_MILLION = 0
@@ -43,11 +43,11 @@ async function main() {
   // Deploy collection marketplace
   let acceptedToken: string = MANA[network]
 
-  if (network === 'LOCALHOST') {
-    const Mana = new ethers.ContractFactory(ManaConfig.abi, MANA_BYTECODE, ethers.provider.getSigner())
-    const mana = await Mana.deploy()
-    acceptedToken = mana.address
-  }
+  // if (network === 'LOCALHOST') {
+  //   const Mana = new ethers.ContractFactory(ManaConfig.abi, MANA_BYTECODE, ethers.provider.getSigner())
+  //   const mana = await Mana.deploy()
+  //   acceptedToken = mana.address
+  // }
 
   const BidContract = await ethers.getContractFactory("ERC721Bid")
   const bidContract = await BidContract.deploy(
